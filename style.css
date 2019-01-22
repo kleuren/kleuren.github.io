@@ -11,3 +11,10 @@ body{
 	padding: 0;
 	position: absolute;
 }
+
+#canvas2{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	display: none;
+}
