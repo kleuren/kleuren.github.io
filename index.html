@@ -8,6 +8,41 @@
 <body>
 	<canvas id="canvas1"></canvas>
 	<canvas id="canvas2"></canvas>
+
+	<div id="navBar">
+        <img src="HamburgerMenu.png" id="HamburgerMenu" class="icon" onclick="openNavBar()"/>
+        <img src="Reset.png" id="Reset" class="navContent icon" onclick="reset()"/>
+
+        <font class="navContent navText" id="size">Size (25-250): 50</font>
+        <div>
+            <input type="range" min="25" max="250" value="50" class="navContent slider" id="slider1">
+        </div>
+
+        <font class="navContent navText" id="blur">Blur (0-100): 100</font>
+        <div>
+            <input type="range" min="0" max="100" value="100" class="navContent slider" id="slider2">
+        </div>
+
+        <font class="navContent navText" id="switchSpeed">Changing speed (1-100): 10</font>
+        <div>
+            <input type="range" min="1" max="100" value="10" class="navContent slider" id="slider3">
+        </div>
+
+        <font class="navContent navText" id="fadeSpeed">Fading speed (0-100): 0</font>
+        <div>
+            <input type="range" min="0" max="100" value="0" class="navContent slider" id="slider4">
+        </div>
+
+        <font class="navContent navText" id="proximity">Color variety (1-5): 5</font>
+        <div>
+            <input type="range" min="1" max="5" value="5" class="navContent slider" id="slider5">
+        </div>
+
+        <font class="navContent navText" id="proximity">RGB Colors (0-255):</font>
+        <font class="navContent rgbText" id="proximity">Red:</font> <input type="number" id="redMin" class="navContent rgbBox" value="0" oninput="red()"> <font class="navContent dash">-</font> <input type="number" id="redMax" class="navContent rgbBox" value="255" oninput="red()">
+        <br><font class="navContent rgbText" id="proximity">Green:</font> <input type="number" id="greenMin" class="navContent rgbBox" value="0" oninput="green()"> <font class="navContent dash">-</font> <input type="number" id="greenMax" class="navContent rgbBox" value="255" oninput="green()">
+        <br><font class="navContent rgbText" id="proximity">Blue:</font> <input type="number" id="blueMin" class="navContent rgbBox" value="0" oninput="blue()"> <font class="navContent dash">-</font> <input type="number" id="blueMax" class="navContent rgbBox" value="255" oninput="blue()">
+    </div>
 </body>
 	<script src="script.js"></script>
 </html>
