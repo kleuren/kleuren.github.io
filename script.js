@@ -131,12 +131,22 @@ function refresh(){
 
 refresh();
 
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+
 var navCheck = true;
 
 function openNavBar(){
 	if(navCheck){
-		document.getElementById("navBar").style.width = "200px";
-		document.getElementById("navBar").style.height = "380px";
+		if(isMobileDevice()){
+			document.getElementById("navBar").style.width = "400px";
+			document.getElementById("navBar").style.height = "760px";
+		}
+		else{
+			document.getElementById("navBar").style.width = "200px";
+			document.getElementById("navBar").style.height = "380px";
+		}
 		for (var i = 0; i < document.getElementsByClassName("navContent").length; i++) {
 			document.getElementsByClassName("navContent")[i].style.display = "block";
 		}
@@ -144,8 +154,14 @@ function openNavBar(){
 		navCheck = false;
 	}
 	else{
-		document.getElementById("navBar").style.width = "25px";
-		document.getElementById("navBar").style.height = "25px";
+		if(isMobileDevice()){
+			document.getElementById("navBar").style.width = "50px";
+			document.getElementById("navBar").style.height = "50px";
+		}
+		else{
+			document.getElementById("navBar").style.width = "25px";
+			document.getElementById("navBar").style.height = "25px";
+		}
 		for (var i = 0; i < document.getElementsByClassName("navContent").length; i++) {
 			document.getElementsByClassName("navContent")[i].style.display = "none";
 		}

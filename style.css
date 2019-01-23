@@ -88,10 +88,6 @@ body{
     user-select: none;
 }
 
-#slider2{
-
-}
-
 .slidecontainer {
     width: 100%;
 }
@@ -123,4 +119,71 @@ body{
     border-radius: 50%;
     background: black;
     cursor: pointer;
+}
+
+.br{
+	display: none;
+}
+
+@media (pointer:none), (pointer:coarse) {
+	.navText{
+		margin-left: 10px;
+		margin-top: 70px;
+		font-size: 30px;
+	}
+
+	.rgbText{
+		margin-left: 10px;
+		margin-top: 6px;
+		font-size: 30px;
+	}
+
+	.rgbBox{
+		width: 90px;
+		height: 20px;
+		margin-top: 8px;
+		margin-left: 100px;
+	}
+
+	#redMax,
+	#greenMax,
+	#blueMax {
+		margin-left: 250px;
+	}
+
+	.dash{
+		margin-left: 217px;
+		margin-top: 7.5px;
+	}
+
+	.icon {
+	    width: 50px;
+	    height: 50px;
+	}
+	#navBar {
+	    height: 50px;
+	    width: 50px;
+	    top: 50px;
+	    right: 50px;
+	    border: 6px solid black;
+	    border-radius: 10px;
+	}
+	.slider {
+	    margin-top: 15px;
+	    margin-left: 10px;
+	    width: 200px;
+	    height: 20px;
+	    border-radius: 10px;
+	}
+	.slider::-webkit-slider-thumb {
+	    width: 30px;
+	    height: 30px;
+	}
+	.slider::-moz-range-thumb {
+	    width: 30px;
+	    height: 30px;
+	}
+	.br{
+		display: block;
+	}
 }
