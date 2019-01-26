@@ -131,22 +131,12 @@ function refresh(){
 
 refresh();
 
-function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
-
 var navCheck = true;
 
 function openNavBar(){
 	if(navCheck){
-		if(isMobileDevice()){
-			document.getElementById("navBar").style.width = "400px";
-			document.getElementById("navBar").style.height = "760px";
-		}
-		else{
-			document.getElementById("navBar").style.width = "200px";
-			document.getElementById("navBar").style.height = "380px";
-		}
+		document.getElementById("navBar").style.width = "200px";
+		document.getElementById("navBar").style.height = "380px";
 		for (var i = 0; i < document.getElementsByClassName("navContent").length; i++) {
 			document.getElementsByClassName("navContent")[i].style.display = "block";
 		}
@@ -154,14 +144,8 @@ function openNavBar(){
 		navCheck = false;
 	}
 	else{
-		if(isMobileDevice()){
-			document.getElementById("navBar").style.width = "50px";
-			document.getElementById("navBar").style.height = "50px";
-		}
-		else{
-			document.getElementById("navBar").style.width = "25px";
-			document.getElementById("navBar").style.height = "25px";
-		}
+		document.getElementById("navBar").style.width = "25px";
+		document.getElementById("navBar").style.height = "25px";
 		for (var i = 0; i < document.getElementsByClassName("navContent").length; i++) {
 			document.getElementsByClassName("navContent")[i].style.display = "none";
 		}
@@ -189,7 +173,7 @@ slider2.oninput = function() {
 
 slider3.oninput = function() {
     switchSpeed = Number(slider3.value/10);
-    document.getElementById("switchSpeed").innerHTML = "Changing speed (1-100): " + slider3.value;
+    document.getElementById("switchSpeed").innerHTML = "Changing speed (1-50): " + slider3.value;
 }
 
 slider4.oninput = function() {
@@ -202,7 +186,7 @@ slider5.oninput = function() {
     document.getElementById("proximity").innerHTML = "Color variety (1-5): " + slider5.value;
 }
 
-function red(){
+function red(max){
 	var redMinTemp = Number(document.getElementById("redMin").value);
 	var redMaxTemp = Number(document.getElementById("redMax").value);
 	if(redMinTemp<0){redMinTemp = 0; document.getElementById("redMin").value = 0;}
@@ -214,20 +198,18 @@ function red(){
 		redMax = redMaxTemp;
 	}
 	else{
-		if(redMaxTemp != 0){
-			document.getElementById("redMin").value = redMaxTemp - 1;
-			redMin = redMinTemp;
-			redMax = redMaxTemp;
+		if(max){
+			document.getElementById("redMin").value = redMaxTemp;
 		}
 		else{
-			document.getElementById("redMin").value = 0;
-			redMin = redMinTemp;
-			redMax = redMaxTemp;
+			document.getElementById("redMax").value = redMinTemp;
 		}
+		redMin = redMinTemp;
+		redMax = redMaxTemp;
 	}
 }
 
-function green(){
+function green(max){
 	var greenMinTemp = Number(document.getElementById("greenMin").value);
 	var greenMaxTemp = Number(document.getElementById("greenMax").value);
 	if(greenMinTemp<0){greenMinTemp = 0; document.getElementById("greenMin").value = 0;}
@@ -239,20 +221,18 @@ function green(){
 		greenMax = greenMaxTemp;
 	}
 	else{
-		if(greenMaxTemp != 0){
-			document.getElementById("greenMin").value = greenMaxTemp - 1;
-			greenMin = greenMinTemp;
-			greenMax = greenMaxTemp;
+		if(max){
+			document.getElementById("greenMin").value = greenMaxTemp;
 		}
 		else{
-			document.getElementById("greenMin").value = 0;
-			greenMin = greenMinTemp;
-			greenMax = greenMaxTemp;
+			document.getElementById("greenMax").value = greenMinTemp;
 		}
+		greenMin = greenMinTemp;
+		greenMax = greenMaxTemp;
 	}
 }
 
-function blue(){
+function blue(max){
 	var blueMinTemp = Number(document.getElementById("blueMin").value);
 	var blueMaxTemp = Number(document.getElementById("blueMax").value);
 	if(blueMinTemp<0){blueMinTemp = 0; document.getElementById("blueMin").value = 0;}
@@ -264,16 +244,14 @@ function blue(){
 		blueMax = blueMaxTemp;
 	}
 	else{
-		if(blueMaxTemp != 0){
-			document.getElementById("blueMin").value = blueMaxTemp - 1;
-			blueMin = blueMinTemp;
-			blueMax = blueMaxTemp;
+		if(max){
+			document.getElementById("blueMin").value = blueMaxTemp;
 		}
 		else{
-			document.getElementById("blueMin").value = 0;
-			blueMin = blueMinTemp;
-			blueMax = blueMaxTemp;
+			document.getElementById("blueMax").value = blueMinTemp;
 		}
+		blueMin = blueMinTemp;
+		blueMax = blueMaxTemp;
 	}
 }
 
@@ -289,7 +267,7 @@ function reset(){
     document.getElementById("slider2").value = 100;
 
     switchSpeed = 1;
-    document.getElementById("switchSpeed").innerHTML = "Changing speed (1-100): 10";
+    document.getElementById("switchSpeed").innerHTML = "Changing speed (1-50): 10";
     document.getElementById("slider3").value = 10;
 
     fadeSpeed = 1;
@@ -300,10 +278,10 @@ function reset(){
     document.getElementById("proximity").innerHTML = "Color variety (1-5): 5";
     document.getElementById("slider5").value = 5;
 
-    document.getElementById("redMin").value = 0;
-    document.getElementById("redMax").value = 255;
-    document.getElementById("greenMin").value = 0;
-    document.getElementById("greenMax").value = 255;
-    document.getElementById("blueMin").value = 0;
-    document.getElementById("blueMax").value = 255;
+    document.getElementById("redMin").value = 0; redMin = 0;
+    document.getElementById("redMax").value = 255; redMax = 255;
+    document.getElementById("greenMin").value = 0; greenMin = 0;
+    document.getElementById("greenMax").value = 255; greenMax = 255;
+    document.getElementById("blueMin").value = 0; blueMin = 0;
+    document.getElementById("blueMax").value = 255; blueMax = 255;
 }
